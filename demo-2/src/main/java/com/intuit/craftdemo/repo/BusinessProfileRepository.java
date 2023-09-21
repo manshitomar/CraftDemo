@@ -14,13 +14,17 @@ public class BusinessProfileRepository{
     private DynamoDBMapper dynamoDBMapper;
 
 
-    public BusinessProfile save(BusinessProfile employee) {
-        dynamoDBMapper.save(employee);
-        return employee;
+    public BusinessProfile save(BusinessProfile businessProfile) {
+        dynamoDBMapper.save(businessProfile);
+        return businessProfile;
     }
 
-    public BusinessProfile getEmployeeById(String businessProfileId) {
-        return dynamoDBMapper.load(BusinessProfile.class, businessProfileId);
+    public BusinessProfile getBusinessProfileByCompanyName(String companyName) {
+        return dynamoDBMapper.load(BusinessProfile.class, companyName);
+    }
+    
+    public void deleteBusinessProfileByCompanyName(BusinessProfile businessProfile) {
+         dynamoDBMapper.delete(businessProfile);
     }
 
 }

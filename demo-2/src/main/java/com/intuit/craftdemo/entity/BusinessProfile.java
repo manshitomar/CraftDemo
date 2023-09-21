@@ -35,5 +35,17 @@ public class BusinessProfile {
 	
 	@DynamoDBAttribute(attributeName = "website")
 	private String website;
+	
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+	
+	public void setLegalName(String legalName) {
+		this.legalName = legalName;
+	}
+	
+	public void setBusinessAddress(String businessAddress) {
+		this.businessAddress = businessAddress;
+	}
 
 }

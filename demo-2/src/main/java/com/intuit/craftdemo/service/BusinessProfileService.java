@@ -42,6 +42,9 @@ public class BusinessProfileService {
 		else return new BusinessProfile();
 	}
 	
+	public BusinessProfile readBusinessProfile(String companyName) {
+		return businessProfileRepository.getBusinessProfileByCompanyName(companyName);
+	}
 	
 
 }
