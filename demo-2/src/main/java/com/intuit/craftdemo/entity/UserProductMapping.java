@@ -19,7 +19,7 @@ public class UserProductMapping {
 	@DynamoDBHashKey(attributeName = "username")
 	private String username;
 	
-	@DynamoDBAttribute(attributeName = "productTypes")
+	@DynamoDBAttribute
 	private String productTypes;
 	
 	

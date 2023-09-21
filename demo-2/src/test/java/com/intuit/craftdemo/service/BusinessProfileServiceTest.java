@@ -26,7 +26,7 @@ public class BusinessProfileServiceTest {
 		businessProfile.setCompanyName("testCompany");
 		businessProfile.setLegalName("testCompany");
 		businessProfile.setBusinessAddress("abcd");
-		businessProfileService.addBusinessProfile(businessProfile);
+		businessProfileService.addBusinessProfile("usr", businessProfile);
         Mockito.verify(businessProfileRepository, Mockito.times(1)).save(any());
     }
 

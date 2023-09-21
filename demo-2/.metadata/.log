@@ -136,20 +136,3 @@ END
 
 !ENTRY org.springframework.tooling.boot.ls 1 0 2023-09-21 08:42:47.557
 !MESSAGE Classpath changed for project: demo-1
-
-!ENTRY org.eclipse.core.resources 4 568 2023-09-21 19:12:06.200
-!MESSAGE Could not write metadata for '/demo-2'.
-!STACK 0
-java.io.FileNotFoundException: /Users/manshitomar/Documents/workspace-spring-tool-suite-4-4.19.1.RELEASE/CraftDemo/demo-2/.metadata/.plugins/org.eclipse.core.resources/.projects/demo-2/.markers.snap (No such file or directory)
-	at java.base/java.io.FileOutputStream.open0(Native Method)
-	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:293)
-	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:235)
-	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:155)
-	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:48)
-	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:44)
-	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1822)
-	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1903)
-	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1211)
-	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1152)
-	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)

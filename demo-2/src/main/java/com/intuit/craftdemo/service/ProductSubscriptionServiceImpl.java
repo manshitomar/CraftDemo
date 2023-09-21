@@ -1,5 +1,7 @@
 package com.intuit.craftdemo.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,11 @@ public class ProductSubscriptionServiceImpl implements ProductSubscriptionServic
 	@Override
 	public UserProductMapping getSubscribedProducts(String username) {
 		return userProductMappingRepository.getUserProductMappingByUsername(username);
+	}
+	
+	@Override
+	public List<UserProductMapping> findAll(){
+		return userProductMappingRepository.findAll();
 	}
 
 }

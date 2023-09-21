@@ -18,34 +18,78 @@ public class BusinessProfile {
 	@DynamoDBHashKey(attributeName = "companyName")
 	private String companyName;
 	
-	@DynamoDBAttribute(attributeName = "legalName")
+	@DynamoDBAttribute
 	private String legalName;
 	
-	@DynamoDBAttribute(attributeName = "businessAddress")
+	@DynamoDBAttribute
 	private String businessAddress;
 	
-	@DynamoDBAttribute(attributeName = "legalAddress")
+	@DynamoDBAttribute
 	private String legalAddress;
 	
-	@DynamoDBAttribute(attributeName = "taxIdentifier")
+	@DynamoDBAttribute
 	private String taxIdentifier;
 	
-	@DynamoDBAttribute(attributeName = "email")
+	@DynamoDBAttribute
 	private String email;
 	
-	@DynamoDBAttribute(attributeName = "website")
+	@DynamoDBAttribute
 	private String website;
 	
 	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
 	}
 	
+	public String getCompanyName() {
+		return this.companyName;
+	}
+	
 	public void setLegalName(String legalName) {
 		this.legalName = legalName;
 	}
 	
+	public String getLegalName() {
+		return this.legalName;
+	}
+	
 	public void setBusinessAddress(String businessAddress) {
 		this.businessAddress = businessAddress;
+	}
+	
+	public String getBusinessAddress() {
+		return this.businessAddress;
+	}
+	
+	public void setLegalAddress(String legalAddress) {
+		this.legalAddress = legalAddress;
+	}
+	
+	public String getLegalAddress() {
+		return this.legalAddress;
+	}
+	
+	public void setTaxIdentifier(String taxIdentifier) {
+		this.taxIdentifier = taxIdentifier;
+	}
+	
+	public String getTaxIdentifier() {
+		return this.taxIdentifier;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public String getEmail() {
+		return this.email;
+	}
+	
+	public void setWebsite(String website) {
+		this.website = website;
+	}
+	
+	public String getWebsite() {
+		return this.website;
 	}
 
 }

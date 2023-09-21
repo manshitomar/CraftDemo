@@ -26,24 +26,41 @@ public class BusinessProfileService {
 	@Autowired
 	BusinessProfileRepository businessProfileRepository;
 	
-	public BusinessProfile addBusinessProfile(BusinessProfile profile) {
+	public BusinessProfile addBusinessProfile(String userId, BusinessProfile profile) {
+		if(validateBusinessProfileData(userId, profile))
 		return businessProfileRepository.save(profile);	
+		else return new BusinessProfile();
 	}
 	
-	public BusinessProfile updateBusinessProfile(BusinessProfile profile, String userId) {
+	public BusinessProfile updateBusinessProfile(String userId, String companyName, BusinessProfile profile) {
+		if(validateBusinessProfileData(userId, profile)) {
+			return businessProfileRepository.update(companyName, profile);	
+		}
+			
+		else return new BusinessProfile();
+	}
+	
+	public List<BusinessProfile> findAll() {
+		return businessProfileRepository.findAll();
+	}
+	
+	public BusinessProfile getBusinessProfileByCompanyName(String companyName) {
+		return businessProfileRepository.getBusinessProfileByCompanyName(companyName);
+	}
+	
+	public String deleteBusinessProfileByCompanyName(String companyName) {
+		return businessProfileRepository.delete(companyName);
+	}
+	
+	private boolean validateBusinessProfileData(String userId, BusinessProfile profile) {
 		UserProductMapping userProductMapping = productSubscriptionService.getSubscribedProducts(userId);
 		Boolean[] validate = { Boolean.TRUE };
 		List<String> productTypes = Arrays.asList(userProductMapping.getProductTypes().split("\\s*,\\s*"));
 
 		productTypes.forEach((e) -> 
-			 validate[0] = validate[0] && productValidationFactory.getProductValidation(ProductType.valueOf(e)).validate(profile));
-		if(validate[0])
-				return businessProfileRepository.save(profile);	
-		else return new BusinessProfile();
-	}
-	
-	public BusinessProfile readBusinessProfile(String companyName) {
-		return businessProfileRepository.getBusinessProfileByCompanyName(companyName);
+			 validate[0] = validate[0] && ProductValidationFactory.getProductValidation(ProductType.valueOf(e)).validate(profile));
+		
+		return validate[0];
 	}
 	
 
