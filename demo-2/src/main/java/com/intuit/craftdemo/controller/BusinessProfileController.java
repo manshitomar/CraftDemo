@@ -17,7 +17,7 @@ public class BusinessProfileController {
 	@Autowired
 	BusinessProfileService businessProfileService;
 	
-	@PostMapping("/businessProfile")
+	@PostMapping("/businessProfile/addBusinessProfile")
 	public ResponseEntity<BusinessProfile> addBusinessProfile(@RequestBody BusinessProfile businessProfile){
 		return ResponseEntity.ok(businessProfileService.addBusinessProfile(businessProfile));
 	}
