@@ -22,7 +22,7 @@ public class ProductValidationFactory {
     	productMap =    productTypes.stream().collect(Collectors.toUnmodifiableMap(ProductValidationService::getType, Function.identity()));
     }
 
-    public static <T> ProductValidationService getProductValidation(ProductType productType) {
+    public  <T> ProductValidationService getProductValidation(ProductType productType) {
         return   Optional.ofNullable(productMap.get(productType)).orElseThrow(IllegalArgumentException::new);
     }
 

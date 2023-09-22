@@ -52,13 +52,13 @@ public class BusinessProfileService {
 		return businessProfileRepository.delete(companyName);
 	}
 	
-	private boolean validateBusinessProfileData(String userId, BusinessProfile profile) {
+	public boolean validateBusinessProfileData(String userId, BusinessProfile profile) {
 		UserProductMapping userProductMapping = productSubscriptionService.getSubscribedProducts(userId);
 		Boolean[] validate = { Boolean.TRUE };
 		List<String> productTypes = Arrays.asList(userProductMapping.getProductTypes().split("\\s*,\\s*"));
 
 		productTypes.forEach((e) -> 
-			 validate[0] = validate[0] && ProductValidationFactory.getProductValidation(ProductType.valueOf(e)).validate(profile));
+			 validate[0] = validate[0] && productValidationFactory.getProductValidation(ProductType.valueOf(e)).validate(profile));
 		
 		return validate[0];
 	}
